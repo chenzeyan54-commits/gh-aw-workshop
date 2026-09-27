@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560"
+  role="img"
+  aria-label="Flow diagram: a workflow run's automatic short-lived Actions token gains the copilot-requests write permission, then authorizes the Copilot API call directly, with no repository secret involved"
+  data-visual-kind="diagram"
+  data-visual-id="side-quest-06-03a-copilot-auth-flow">
+
+  <!-- Background -->
+  <rect width="1200" height="560" fill="#f2f5f3"/>
+
+  <!-- Title -->
+  <text x="600" y="48" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="22" font-weight="700" fill="#101411">Method 1: Copilot Requests Permission</text>
+  <text x="600" y="74" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="15" fill="#232925">One permission line lets the run's own token authorize the Copilot API — no secret required</text>
+
+  <defs>
+    <marker id="arrow-light" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#232925"/>
+    </marker>
+  </defs>
+
+  <!-- ===== NODE 1: Workflow run starts ===== -->
+  <rect x="40" y="180" width="250" height="180" rx="12" fill="#ffffff" stroke="#b6bfb8" stroke-width="1.5" data-node="workflow-run"/>
+  <!-- play/workflow octicon -->
+  <g transform="translate(145, 208)" fill="#08872b">
+    <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm6.271-2.014a.75.75 0 0 1 .75 0l4 2.5a.75.75 0 0 1 0 1.279l-4 2.5a.75.75 0 0 1-1.125-.64V6.625a.75.75 0 0 1 .375-.64z"/>
+  </g>
+  <text x="165" y="260" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="16" font-weight="600" fill="#101411">Workflow run</text>
+  <text x="165" y="282" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="13" fill="#232925">starts on GitHub</text>
+  <text x="165" y="300" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="13" fill="#232925">Actions</text>
+
+  <!-- Step badge 1 -->
+  <circle cx="40" cy="180" r="14" fill="#08872b"/>
+  <text x="40" y="185" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="13" font-weight="700" fill="#f2f5f3">1</text>
+
+  <!-- Arrow 1->2 -->
+  <line x1="291" y1="270" x2="349" y2="270" stroke="#232925" stroke-width="2" marker-end="url(#arrow-light)"/>
+  <text x="320" y="258" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="12" fill="#232925">issues</text>
+
+  <!-- ===== NODE 2: Actions token ===== -->
+  <rect x="350" y="180" width="250" height="180" rx="12" fill="#ffffff" stroke="#b6bfb8" stroke-width="1.5" data-node="actions-token"/>
+  <!-- key octicon -->
+  <g transform="translate(455, 208)" fill="#08872b">
+    <path d="M10.5 0a5.499 5.499 0 1 1-1.288 10.848l-.932.932a.749.749 0 0 1-.53.22H7v.75a.749.749 0 0 1-.22.53l-.5.5a.749.749 0 0 1-.53.22H5v.75a.749.749 0 0 1-.22.53l-.5.5a.749.749 0 0 1-.53.22h-2A1.75 1.75 0 0 1 0 14.25v-2c0-.199.079-.389.22-.53l4.932-4.932A5.5 5.5 0 0 1 10.5 0Zm-4 5.5c-.001.431.069.86.205 1.269a.75.75 0 0 1-.181.768L1.5 12.56v1.69c0 .138.112.25.25.25h1.69l.06-.06v-1.19a.75.75 0 0 1 .75-.75h1.19l.06-.06v-1.19a.75.75 0 0 1 .75-.75h1.19l1.023-1.025a.75.75 0 0 1 .768-.18A4 4 0 1 0 6.5 5.5ZM11 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+  </g>
+  <text x="475" y="260" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="16" font-weight="600" fill="#101411">Actions token</text>
+  <text x="475" y="282" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="13" fill="#232925">Short-lived, scoped</text>
+  <text x="475" y="300" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="13" fill="#232925">to this run only</text>
+
+  <!-- Step badge 2 -->
+  <circle cx="350" cy="180" r="14" fill="#08872b"/>
+  <text x="350" y="185" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="13" font-weight="700" fill="#f2f5f3">2</text>
+
+  <!-- Arrow 2->3 -->
+  <line x1="601" y1="270" x2="659" y2="270" stroke="#232925" stroke-width="2" marker-end="url(#arrow-light)"/>
+  <text x="630" y="258" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="12" fill="#232925">grants</text>
+
+  <!-- ===== NODE 3: permission grant ===== -->
+  <rect x="660" y="160" width="270" height="220" rx="12" fill="#ffffff" stroke="#08872b" stroke-width="2" data-node="permission-grant"/>
+  <text x="795" y="190" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="13" font-weight="600" fill="#08872b" letter-spacing="0.04em">FRONTMATTER</text>
+  <!-- shield-check octicon -->
+  <g transform="translate(783, 206)" fill="#08872b">
+    <path d="m8.533.133 5.25 1.68A1.75 1.75 0 0 1 15 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.697 1.697 0 0 1-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 0 1 1.217-1.667l5.25-1.68a1.748 1.748 0 0 1 1.066 0Zm-.61 1.429.001.001-5.25 1.68a.251.251 0 0 0-.174.237V7c0 1.36.275 2.666 1.057 3.859.784 1.194 2.121 2.342 4.366 3.298a.196.196 0 0 0 .154 0c2.245-.957 3.582-2.103 4.366-3.297C13.225 9.666 13.5 8.358 13.5 7V3.48a.25.25 0 0 0-.174-.238l-5.25-1.68a.25.25 0 0 0-.153 0ZM11.28 6.28l-3.5 3.5a.75.75 0 0 1-1.06 0l-1.5-1.5a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l.97.97 2.97-2.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/>
+  </g>
+  <text x="795" y="258" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="16" font-weight="600" fill="#101411">permissions:</text>
+  <rect x="700" y="270" width="190" height="30" rx="6" fill="#f2f5f3" stroke="#b6bfb8" stroke-width="1"/>
+  <text x="795" y="290" text-anchor="middle" font-family="'Mona Sans Mono', monospace" font-size="12" fill="#101411">copilot-requests: write</text>
+  <text x="795" y="330" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="13" fill="#232925">No secret to create</text>
+
+  <!-- Step badge 3 -->
+  <circle cx="660" cy="160" r="14" fill="#08872b"/>
+  <text x="660" y="165" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="13" font-weight="700" fill="#f2f5f3">3</text>
+
+  <!-- Arrow 3->4 -->
+  <line x1="931" y1="270" x2="989" y2="270" stroke="#232925" stroke-width="2" marker-end="url(#arrow-light)"/>
+  <text x="960" y="258" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="12" fill="#232925">authorizes</text>
+
+  <!-- ===== NODE 4: Copilot API call success ===== -->
+  <rect x="990" y="180" width="170" height="180" rx="12" fill="#f2f5f3" stroke="#1a7f37" stroke-width="1.5" data-node="copilot-api-call"/>
+  <!-- check-circle octicon, success state -->
+  <g transform="translate(1057, 208)" fill="#1a7f37" data-state="success">
+    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"/>
+  </g>
+  <text x="1075" y="260" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="16" font-weight="600" fill="#101411">Copilot API</text>
+  <text x="1075" y="282" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="13" fill="#1a7f37" font-weight="600">Authorized</text>
+
+  <!-- Step badge 4 -->
+  <circle cx="990" cy="180" r="14" fill="#08872b"/>
+  <text x="990" y="185" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="13" font-weight="700" fill="#f2f5f3">4</text>
+
+  <!-- Annotation -->
+  <text x="600" y="534" text-anchor="middle" font-family="'Mona Sans', system-ui, sans-serif" font-size="14" fill="#232925">Adding one permission line lets the run's own token stand in for a Copilot credential.</text>
+
+</svg>

@@ -39,6 +39,14 @@ permissions:
 
 That single line is the only workflow [authentication](https://github.github.com/gh-aw/reference/auth/) change required for repositories that can use Method 1. Recompile and commit the [lock file](https://github.github.com/gh-aw/reference/glossary/#workflow-lock-file-lockyml) after changing the source workflow.
 
+The diagram below shows how the permission line replaces a secret: the run's own short-lived Actions token gains `copilot-requests: write` and authorizes the Copilot API call directly.
+
+<picture>
+   <source media="(prefers-color-scheme: dark)" srcset="images/side-quest-06-03a-copilot-auth-flow-dark.svg">
+   <source media="(prefers-color-scheme: light)" srcset="images/side-quest-06-03a-copilot-auth-flow-light.svg">
+   <img alt="Flow diagram showing a workflow run's Actions token gaining the copilot-requests write permission and authorizing the Copilot API call, with no repository secret involved" src="images/side-quest-06-03a-copilot-auth-flow-light.svg">
+</picture>
+
 ## Troubleshooting
 
 <details>
