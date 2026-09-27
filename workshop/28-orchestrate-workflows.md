@@ -129,7 +129,7 @@ safe-outputs:
 The `workflows` list is an allowlist — your orchestrator can only dispatch workflows named here. The `max: 1` cap prevents one run from triggering many specialists at once.
 
 > [!NOTE]
-> `dispatch-workflow` triggers the named workflow with a `workflow_dispatch` event. The specialist runs asynchronously in its own Actions job. Your orchestrator does not wait for it to complete.
+> `dispatch-workflow` triggers the named workflow with a [`workflow_dispatch`](https://github.github.com/gh-aw/reference/triggers/#dispatch-triggers-workflowdispatch) event. The specialist runs asynchronously in its own Actions job. Your orchestrator does not wait for it to complete.
 
 ### Compile and push
 

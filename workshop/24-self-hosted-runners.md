@@ -18,15 +18,15 @@ rather than a GitHub-hosted machine.
 - You know the label assigned to your runner (for example, `self-hosted`, `ubuntu-self-hosted`, or a custom label your admin configured).
 
 > [!NOTE]
-> Not on an enterprise plan? GitHub-hosted runners work for the main workshop path. Come back to this step if you later move to a GHES or GHEC environment with self-hosted runners.
+> Not on an enterprise plan? GitHub-hosted runners work for the main workshop path. Come back to this step if you later move to a [GHES](https://github.github.com/gh-aw/reference/self-hosted-runners/#ghes-github-enterprise-server) or GHEC environment with self-hosted runners.
 
 ## Understand runner targeting in frontmatter
 
 An agentic workflow's frontmatter is compatible with standard GitHub Actions YAML.
-The `runs-on:` field tells Actions which runner to use — it works identically for
+The [`runs-on:`](https://github.github.com/gh-aw/reference/self-hosted-runners/#runs-on-formats) field tells Actions which runner to use — it works identically for
 agentic workflows and classic jobs.
 
-The diagram below shows how Actions reads your labels and dispatches the job to the first idle runner that satisfies all of them.
+The diagram below shows how Actions reads your [labels](https://github.github.com/gh-aw/reference/self-hosted-runners/#labels-and-runner-groups) and dispatches the job to the first idle runner that satisfies all of them.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="images/24-runner-label-dispatch-dark.svg">

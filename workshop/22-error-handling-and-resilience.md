@@ -88,7 +88,7 @@ timeout-minutes: 10
 >
 > </details>
 
-On GitHub Enterprise Server (GHES) and GitHub Enterprise Cloud (GHEC), administrators can set a maximum job timeout at the organisation or enterprise level. When that policy is more restrictive than your `timeout-minutes` value, the enterprise limit takes precedence and the workflow job will be cancelled at the admin-set threshold. Check with your GitHub administrator before relying on a specific `timeout-minutes` value in an enterprise environment.
+On [GitHub Enterprise Server (GHES)](https://github.github.com/gh-aw/reference/self-hosted-runners/#ghes-github-enterprise-server) and GitHub Enterprise Cloud (GHEC), administrators can set a maximum job timeout at the organisation or enterprise level. When that policy is more restrictive than your `timeout-minutes` value, the enterprise limit takes precedence and the workflow job will be cancelled at the admin-set threshold. Check with your GitHub administrator before relying on a specific `timeout-minutes` value in an enterprise environment.
 
 ### Add a fallback message to [safe outputs](https://github.github.com/gh-aw/reference/safe-outputs/)
 

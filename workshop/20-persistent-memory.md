@@ -124,7 +124,7 @@ have already reported on. On each run:
 
 ### [Compile](https://github.github.com/gh-aw/reference/compilation-process/), validate, and push
 
-The `/agentic-workflows` skill recompiles the lock file automatically. If you edited manually, run `gh aw compile` first to confirm the memory block is valid.
+The `/agentic-workflows` skill recompiles the [lock file](https://github.github.com/gh-aw/reference/compilation-process/) automatically. If you edited manually, run `gh aw compile` first to confirm the memory block is valid.
 
 Common mistakes include putting `cache-memory:` at the top level instead of nesting it under `tools:`, and omitting the `key:` field for `cache-memory`.
 
